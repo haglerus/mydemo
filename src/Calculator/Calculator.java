@@ -46,7 +46,8 @@ public class Calculator {
                 case "+" -> IntegerConverter.intToRoman(romanNumberOne + romanNumberTwo);
                 case "-" -> IntegerConverter.intToRoman(romanNumberOne - romanNumberTwo);
                 case "*" -> IntegerConverter.intToRoman(romanNumberOne * romanNumberTwo);
-                default -> IntegerConverter.intToRoman(romanNumberOne / romanNumberTwo);
+                case "/" -> IntegerConverter.intToRoman(romanNumberOne / romanNumberTwo);
+                default -> throw new IOException("Неверный операнд");
             };
         }
         throw inputFormatException; // exception
