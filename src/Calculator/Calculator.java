@@ -19,6 +19,7 @@ public class Calculator {
         if(inputElements.length != 3){
             throw inputFormatException;
         }
+        IOException inputOperandException = new IOException("Неверный операнд");
         String numberOne = inputElements[0];
         String numberTwo = inputElements[2];
         String action = inputElements[1];
@@ -31,7 +32,7 @@ public class Calculator {
                 case "-" -> String.valueOf(arabicNumberOne - arabicNumberTwo);
                 case "*" -> String.valueOf(arabicNumberOne * arabicNumberTwo);
                 case "/" -> String.valueOf(arabicNumberOne / arabicNumberTwo);
-                default -> throw new IOException("Неверный операнд");
+                default -> throw inputOperandException;
                 };
             }
 
@@ -47,7 +48,7 @@ public class Calculator {
                 case "-" -> IntegerConverter.intToRoman(romanNumberOne - romanNumberTwo);
                 case "*" -> IntegerConverter.intToRoman(romanNumberOne * romanNumberTwo);
                 case "/" -> IntegerConverter.intToRoman(romanNumberOne / romanNumberTwo);
-                default -> throw new IOException("Неверный операнд");
+                default -> throw inputOperandException;
             };
         }
         throw inputFormatException; // exception
